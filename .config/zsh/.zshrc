@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/lemagicien/.oh-my-zsh"
-
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -137,5 +137,7 @@ export PATH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v='nvim'
 alias sv='sudo nvim'
-alias zshconfig='nvim ~/.zshrc'
+alias zshconfig='nvim ~/.config/zsh/.zshrc'
 alias i3config='nvim ~/.config/i3/config'
+alias pman='pacman'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts' # For cleaning up $HOME

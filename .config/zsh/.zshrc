@@ -3,7 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/lemagicien/.oh-my-zsh"
-export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTFILE="$XDG_DATA_HOME"/zsh/history
+export PATH="$HOME/.local/bin:$PATH"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -106,7 +107,15 @@ SPACESHIP_PROMPT_ORDER=(
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent zsh-syntax-highlighting)
+plugins=(
+    git
+    ssh-agent
+    zsh-syntax-highlighting
+    vi-mode
+)
+# Fix needed for VI-Mode
+export RPS1="%{$reset_color%}"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -135,9 +144,12 @@ export PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim='nvim'
 alias v='nvim'
 alias sv='sudo nvim'
 alias zshconfig='nvim ~/.config/zsh/.zshrc'
 alias i3config='nvim ~/.config/i3/config'
-alias pman='pacman'
+alias pm='sudo pacman'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts' # For cleaning up $HOME
+alias mongo='mongo --norc --shell $XDG_CONFIG_HOME/mongo/mongorc.js'
+alias SS='sudo systemctl'

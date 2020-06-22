@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/lemagicien/.oh-my-zsh"
+export ZSH="/home/lemagicien/.config/oh-my-zsh"
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export PATH="$HOME/.local/bin:$PATH"
 # Set name of the theme to load --- if set to "random", it will
@@ -10,42 +10,65 @@ export PATH="$HOME/.local/bin:$PATH"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
+
+# User settings
+#SPACESHIP_USER_SHOW=always
+#SPACESHIP_USER_PREFIX=""
+#SPACESHIP_USER_COLOR=#ff5fdf
+
+# Directory settings
+SPACESHIP_DIR_PREFIX=""
+SPACESHIP_DIR_TRUNC=3
+SPACESHIP_DIR_COLOR=#ff5fdf
+
+# Newline settings
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 
+# Vi Mode
+SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_INSERT="🙃"
+SPACESHIP_VI_MODE_NORMAL="😇"
+
+# Docker
+SPACESHIP_DOCKER_PREFIX=""
+SPACESHIP_DOCKER_VERSION=false
+SPACESHIP_DOCKER_SHOW=true
+
 SPACESHIP_PROMPT_ORDER=(
 	time
-	dir
+	vi_mode
 	user
-	host
+	dir
+	#host
 	git
-	hg
+	#hg
 	package
 	node
 	ruby
-	elm
-	elixir
-	xcode
-	swift
+	#elm
+	#elixir
+	#xcode
+	#swift
 	golang
 	php
 	rust
-	haskell
-	julia
+	#haskell
+	#julia
 	docker
 	aws
 	venv
-	conda
+	#conda
 	pyenv
-	dotnet
-	ember
+	#dotnet
+	#ember
 	kubectl
 	terraform
-	exec_time
+	#exec_time
 	line_sep
-	battery
-	vi_mode
+	#battery
 	jobs
+    sudo
 	exit_code
 	char
 )
@@ -112,15 +135,24 @@ plugins=(
     ssh-agent
     zsh-syntax-highlighting
     vi-mode
+    docker
+    docker-compose
+    ansible
+    cargo
+    copydir
+    django
+    gcloud
+    golang
+    kubectl
+    nmap
+    pip
+    sudo
 )
 # Fix needed for VI-Mode
 export RPS1="%{$reset_color%}"
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-path=($HOME/.arcanist/arcanist/bin $path)
-export PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -149,7 +181,8 @@ alias v='nvim'
 alias sv='sudo nvim'
 alias zshconfig='nvim ~/.config/zsh/.zshrc'
 alias i3config='nvim ~/.config/i3/config'
-alias pm='sudo pacman'
+alias pm='pacman'
+alias spm='sudo pacman'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts' # For cleaning up $HOME
-alias mongo='mongo --norc --shell $XDG_CONFIG_HOME/mongo/mongorc.js'
 alias SS='sudo systemctl'
+alias dc='docker-compose'
